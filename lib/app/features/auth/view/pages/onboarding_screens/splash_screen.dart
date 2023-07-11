@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_app/Utils/colors.dart';
-import 'package:todo_app/pages/onboarding_screens/boarding_screen.dart';
+import 'package:todo_app/app/features/auth/view/pages/onboarding_screens/boarding_screen.dart';
+import 'package:todo_app/utils/colors.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todo_app/pages/onboarding_screens/splash_screen.dart';
+import 'package:todo_app/app/features/auth/view/pages/onboarding_screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

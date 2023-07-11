@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todo_app/Utils/colors.dart';
-import 'package:todo_app/pages/onboarding_screens/onboarding_screen2.dart';
-import 'package:todo_app/pages/onboarding_screens/start_screen.dart';
+import 'package:todo_app/utils/colors.dart';
+import 'package:todo_app/app/features/auth/view/pages/onboarding_screens/onboarding_screen2.dart';
+import 'package:todo_app/app/features/auth/view/pages/onboarding_screens/start_screen.dart';
 
 class OnBoardingScreen1 extends StatefulWidget {
   const OnBoardingScreen1({super.key});

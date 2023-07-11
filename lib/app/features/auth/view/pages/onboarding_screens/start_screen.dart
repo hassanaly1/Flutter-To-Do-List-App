@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todo_app/Utils/colors.dart';
+import 'package:todo_app/app/features/auth/view/pages/login/login_screen.dart';
+import 'package:todo_app/utils/colors.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
@@ -79,7 +81,13 @@ class _StartScreenState extends State<StartScreen> {
                       ),
                       backgroundColor: const Color(0XFF8875FF),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => const LoginScreen(),
+                          ));
+                    },
                     child: Text(
                       'LOGIN',
                       style: GoogleFonts.lato(
@@ -100,7 +108,7 @@ class _StartScreenState extends State<StartScreen> {
                           borderRadius: BorderRadius.circular(0),
                           side: const BorderSide(
                               color: Color(0XFF8875FF), width: 2)),
-                      backgroundColor: Colors.transparent,
+                      backgroundColor: backgroundColor,
                     ),
                     onPressed: () {},
                     child: Text(

@@ -1,19 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todo_app/Utils/colors.dart';
-import 'package:todo_app/pages/onboarding_screens/onboarding_screen1.dart';
-import 'package:todo_app/pages/onboarding_screens/onboarding_screen3.dart';
-import 'package:todo_app/pages/onboarding_screens/start_screen.dart';
+import 'package:todo_app/utils/colors.dart';
+import 'package:todo_app/app/features/auth/view/pages/onboarding_screens/onboarding_screen2.dart';
+import 'package:todo_app/app/features/auth/view/pages/onboarding_screens/start_screen.dart';
 
-class OnBoardingScreen2 extends StatefulWidget {
-  const OnBoardingScreen2({super.key});
+class ReUableOnBoardingScreen extends StatelessWidget {
+  final String mainText;
+  final String subText;
+  final String buttonText;
+  ReUableOnBoardingScreen(
+      {super.key,
+      required this.mainText,
+      required this.subText,
+      required this.buttonText});
 
-  @override
-  State<OnBoardingScreen2> createState() => _OnBoardingScreen2State();
-}
-
-class _OnBoardingScreen2State extends State<OnBoardingScreen2> {
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
 
   @override
@@ -48,7 +49,7 @@ class _OnBoardingScreen2State extends State<OnBoardingScreen2> {
               child: Image(
                 width: 213,
                 height: 277,
-                image: AssetImage('assets/images/image2.png'),
+                image: AssetImage('assets/images/image1.png'),
               ),
             ),
             //Dots Indicator
@@ -62,7 +63,7 @@ class _OnBoardingScreen2State extends State<OnBoardingScreen2> {
                     height: 40,
                   ),
                   Text(
-                    'Create daily routine',
+                    mainText,
                     style: GoogleFonts.lato(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
@@ -73,7 +74,7 @@ class _OnBoardingScreen2State extends State<OnBoardingScreen2> {
                     height: 15,
                   ),
                   Text(
-                    'In Uptodo you can create your personalized routine to stay productive',
+                    subText,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.lato(
                       fontSize: 16,
@@ -91,13 +92,7 @@ class _OnBoardingScreen2State extends State<OnBoardingScreen2> {
                 Align(
                   alignment: Alignment.bottomLeft,
                   child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          CupertinoPageRoute(
-                            builder: (context) => const OnBoardingScreen1(),
-                          ));
-                    },
+                    onPressed: () {},
                     child: Text(
                       "BACK",
                       style: GoogleFonts.lato(
@@ -124,11 +119,11 @@ class _OnBoardingScreen2State extends State<OnBoardingScreen2> {
                         Navigator.push(
                             context,
                             CupertinoPageRoute(
-                              builder: (context) => const OnBoardingScreen3(),
+                              builder: (context) => const OnBoardingScreen2(),
                             ));
                       },
                       child: Text(
-                        'NEXT',
+                        buttonText,
                         style: GoogleFonts.lato(
                             color: const Color(0xffffffffde), fontSize: 18),
                       ),
