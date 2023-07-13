@@ -1,19 +1,23 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_app/utils/colors.dart';
-import 'package:todo_app/app/features/auth/view/pages/onboarding_screens/onboarding_screen2.dart';
 import 'package:todo_app/app/features/auth/view/pages/onboarding_screens/start_screen.dart';
 
 class ReUableOnBoardingScreen extends StatelessWidget {
   final String mainText;
   final String subText;
   final String buttonText;
-  ReUableOnBoardingScreen(
-      {super.key,
-      required this.mainText,
-      required this.subText,
-      required this.buttonText});
+  final String imageName;
+  ReUableOnBoardingScreen({
+    super.key,
+    required this.mainText,
+    required this.subText,
+    required this.buttonText,
+    required this.imageName,
+  });
 
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
 
@@ -39,17 +43,17 @@ class ReUableOnBoardingScreen extends StatelessWidget {
                   "SKIP",
                   style: GoogleFonts.lato(
                     fontSize: 24,
-                    color: const Color.fromARGB(255, 148, 147, 147),
+                    color: smallButtonColor,
                   ),
                 ),
               ),
             ),
             //Image
-            const Center(
+            Center(
               child: Image(
                 width: 213,
                 height: 277,
-                image: AssetImage('assets/images/image1.png'),
+                image: AssetImage('assets/images/$imageName.png'),
               ),
             ),
             //Dots Indicator
@@ -67,7 +71,7 @@ class ReUableOnBoardingScreen extends StatelessWidget {
                     style: GoogleFonts.lato(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
-                      color: const Color(0xffffffffde),
+                      color: textColor,
                     ),
                   ),
                   const SizedBox(
@@ -79,7 +83,7 @@ class ReUableOnBoardingScreen extends StatelessWidget {
                     style: GoogleFonts.lato(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
-                      color: const Color(0xffffffffde),
+                      color: textColor,
                     ),
                   )
                 ],
@@ -98,7 +102,7 @@ class ReUableOnBoardingScreen extends StatelessWidget {
                       style: GoogleFonts.lato(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
-                        color: const Color.fromARGB(255, 148, 147, 147),
+                        color: smallButtonColor,
                       ),
                     ),
                   ),
@@ -113,19 +117,18 @@ class ReUableOnBoardingScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(0),
                         ),
-                        backgroundColor: const Color(0XFF8875FF),
+                        backgroundColor: buttonColor,
                       ),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                              builder: (context) => const OnBoardingScreen2(),
-                            ));
+                        // Navigator.push(
+                        //     context,
+                        //     CupertinoPageRoute(
+                        //       builder: (context) => const OnBoardingScreen2(),
+                        //     ));
                       },
                       child: Text(
                         buttonText,
-                        style: GoogleFonts.lato(
-                            color: const Color(0xffffffffde), fontSize: 18),
+                        style: GoogleFonts.lato(color: textColor, fontSize: 18),
                       ),
                     ),
                   ),

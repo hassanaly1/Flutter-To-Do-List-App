@@ -1,11 +1,13 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MyTextField extends StatelessWidget {
+class CustomTextField extends StatelessWidget {
   final String name;
   final String hintText;
   final bool obsecureText;
-  const MyTextField(
+  const CustomTextField(
       {super.key,
       required this.name,
       required this.hintText,

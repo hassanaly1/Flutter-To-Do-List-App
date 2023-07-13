@@ -1,7 +1,10 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_app/app/features/auth/view/pages/login/login_screen.dart';
+import 'package:todo_app/app/features/auth/view/pages/register/register_screen.dart';
 import 'package:todo_app/utils/colors.dart';
 
 class StartScreen extends StatefulWidget {
@@ -23,7 +26,7 @@ class _StartScreenState extends State<StartScreen> {
             padding: EdgeInsets.all(25.0),
             child: Icon(
               Icons.arrow_back_ios,
-              color: Colors.white,
+              color: textColor,
             ),
           ), // Set the desired icon
           onPressed: () {
@@ -46,7 +49,7 @@ class _StartScreenState extends State<StartScreen> {
                   style: GoogleFonts.lato(
                     fontSize: 40,
                     fontWeight: FontWeight.w700,
-                    color: const Color(0xffffffffde),
+                    color: textColor,
                   ),
                 ),
                 const SizedBox(
@@ -59,7 +62,7 @@ class _StartScreenState extends State<StartScreen> {
                   style: GoogleFonts.lato(
                     fontSize: 20,
                     fontWeight: FontWeight.w400,
-                    color: const Color(0xffffffffde),
+                    color: textColor,
                   ),
                 ),
               ],
@@ -79,7 +82,7 @@ class _StartScreenState extends State<StartScreen> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(0),
                       ),
-                      backgroundColor: const Color(0XFF8875FF),
+                      backgroundColor: buttonColor,
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -93,7 +96,7 @@ class _StartScreenState extends State<StartScreen> {
                       style: GoogleFonts.lato(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
-                        color: const Color(0xffffffffde),
+                        color: textColor,
                       ),
                     ),
                   ),
@@ -106,17 +109,22 @@ class _StartScreenState extends State<StartScreen> {
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(0),
-                          side: const BorderSide(
-                              color: Color(0XFF8875FF), width: 2)),
+                          side: const BorderSide(color: buttonColor, width: 2)),
                       backgroundColor: backgroundColor,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => const RegistrationScreen(),
+                          ));
+                    },
                     child: Text(
                       'CREATE ACCOUNT',
                       style: GoogleFonts.lato(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
-                        color: const Color(0xffffffffde),
+                        color: textColor,
                       ),
                     ),
                   ),

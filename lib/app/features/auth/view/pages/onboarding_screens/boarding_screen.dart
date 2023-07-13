@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 import 'package:todo_app/app/features/auth/view/pages/onboarding_screens/reusable_onboarding_screen.dart';
 
 class BoardingScreen extends StatefulWidget {
@@ -20,24 +21,26 @@ class _BoardingScreenState extends State<BoardingScreen> {
             controller: _controller,
             children: [
               ReUableOnBoardingScreen(
-                  mainText: 'Manage your tasks',
-                  subText:
-                      'You can easily manage all of your daily tasks in DoMe for free',
-                  buttonText: 'NEXT'),
+                mainText: 'Manage your tasks',
+                subText:
+                    'You can easily manage all of your daily tasks in DoMe for free',
+                buttonText: 'NEXT',
+                imageName: 'image1',
+              ),
               ReUableOnBoardingScreen(
-                  mainText: 'Create daily routine',
-                  subText:
-                      'In Uptodo  you can create your personalized routine to stay productive',
-                  buttonText: 'NEXT'),
+                mainText: 'Create daily routine',
+                subText:
+                    'In Uptodo  you can create your personalized routine to stay productive',
+                buttonText: 'NEXT',
+                imageName: 'image2',
+              ),
               ReUableOnBoardingScreen(
-                  mainText: 'Organaize your tasks',
-                  subText:
-                      'You can organize your daily tasks by adding your tasks into separate categories',
-                  buttonText: 'GET STARTED'),
-
-              // OnBoardingScreen1(),
-              // OnBoardingScreen2(),
-              // OnBoardingScreen3(),
+                mainText: 'Organaize your tasks',
+                subText:
+                    'You can organize your daily tasks by adding your tasks into separate categories',
+                buttonText: 'GET STARTED',
+                imageName: 'image3',
+              ),
             ],
           ),
           Container(

@@ -3,19 +3,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todo_app/app/features/auth/view/pages/register/register_screen.dart';
+import 'package:todo_app/app/features/auth/view/pages/login/login_screen.dart';
 import 'package:todo_app/app/features/auth/widget/custom_text_field.dart';
-import 'package:todo_app/app/features/home/view/pages/bottom_bar.dart';
 import 'package:todo_app/utils/colors.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegistrationScreen extends StatefulWidget {
+  const RegistrationScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,20 +37,20 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 40),
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Login',
+                'Register',
                 style: GoogleFonts.lato(
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
                   color: textColor,
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
               const CustomTextField(
                   name: 'Username', hintText: 'Enter your Username'),
               const SizedBox(
@@ -59,7 +58,15 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const CustomTextField(
                 name: 'Password',
-                hintText: 'Enter your Password',
+                hintText: '************',
+                obsecureText: true,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const CustomTextField(
+                name: 'Confirm Password',
+                hintText: '************',
                 obsecureText: true,
               ),
               const SizedBox(
@@ -75,15 +82,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     backgroundColor: buttonColor,
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        CupertinoPageRoute(
-                          builder: (context) => const BottomBar(),
-                        ));
-                  },
+                  onPressed: () {},
                   child: Text(
-                    'Login',
+                    'Register',
                     style: GoogleFonts.lato(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
@@ -136,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(
-                height: 100,
+                height: 50,
               ),
 
               //Dont have an account
@@ -144,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Dont have an account?',
+                    'Already have an account?',
                     style: GoogleFonts.lato(
                       fontSize: 12,
                       fontWeight: FontWeight.w700,
@@ -156,11 +157,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.push(
                             context,
                             CupertinoPageRoute(
-                              builder: (context) => const RegistrationScreen(),
+                              builder: (context) => const LoginScreen(),
                             ));
                       },
                       child: Text(
-                        'Register',
+                        'Login',
                         style: GoogleFonts.lato(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
