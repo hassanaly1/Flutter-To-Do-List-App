@@ -111,7 +111,7 @@ class ReUableOnBoardingScreen extends StatelessWidget {
                   alignment: Alignment.bottomRight,
                   child: SizedBox(
                     height: 48,
-                    width: 90,
+                    width: 150,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
@@ -128,6 +128,7 @@ class ReUableOnBoardingScreen extends StatelessWidget {
                       },
                       child: Text(
                         buttonText,
+                        maxLines: 1,
                         style: GoogleFonts.lato(color: textColor, fontSize: 18),
                       ),
                     ),
