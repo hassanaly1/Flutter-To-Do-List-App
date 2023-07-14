@@ -1,5 +1,8 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_app/app/features/home/view/pages/add_task_dialog.dart';
 import 'package:todo_app/app/features/home/view/pages/home_screen.dart';
 import 'package:todo_app/utils/colors.dart';
 
@@ -54,7 +57,7 @@ class _BottomBarState extends State<BottomBar> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: bottomBarBackgroundColor,
+        backgroundColor: lightGreyBackgroundColor,
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         selectedItemColor: textColor,
@@ -94,7 +97,10 @@ class _BottomBarState extends State<BottomBar> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: buttonColor,
         onPressed: () {
-          // Add your action here
+          showDialog(
+            context: context,
+            builder: (BuildContext context) => const AddTaskDialog(),
+          );
         },
         shape: const CircleBorder(),
         child: const Icon(

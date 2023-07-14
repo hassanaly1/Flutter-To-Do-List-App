@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todo_app/app/features/auth/view/pages/onboarding_screens/boarding_screen.dart';
 import 'package:todo_app/utils/colors.dart';
 
@@ -27,13 +28,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: backgroundColor,
       body: Center(
         child: Image(
-          width: 140,
-          height: 180,
-          image: AssetImage("assets/images/splash_image.png"),
+          width: 140.w,
+          height: 180.h,
+          image: const AssetImage("assets/images/splash_image.png"),
         ),
       ),
     );
