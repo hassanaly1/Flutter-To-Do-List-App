@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/app/features/home/view/pages/add_task_dialog.dart';
 import 'package:todo_app/app/features/home/view/pages/home_screen.dart';
+import 'package:todo_app/app/features/profile/view/pages/profile_screen.dart';
 import 'package:todo_app/utils/colors.dart';
 
 class BottomBar extends StatefulWidget {
@@ -53,7 +54,7 @@ class _BottomBarState extends State<BottomBar> {
           HomeScreen(),
           CalendarPage(),
           FocusPage(),
-          ProfilePage(),
+          ProfileScreen(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -139,23 +140,6 @@ class FocusPage extends StatelessWidget {
       body: Center(
         child: Text(
           'Focus Page',
-          style: TextStyle(color: textColor),
-        ),
-      ),
-    );
-  }
-}
-
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: backgroundColor,
-      body: Center(
-        child: Text(
-          'Profile Page',
           style: TextStyle(color: textColor),
         ),
       ),

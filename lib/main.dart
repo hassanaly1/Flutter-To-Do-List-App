@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todo_app/app/features/auth/view/pages/onboarding_screens/splash_screen.dart';
 import 'package:todo_app/app/features/home/view/pages/bottom_bar.dart';
 
 void main() {
