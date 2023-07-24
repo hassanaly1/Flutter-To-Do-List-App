@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_app/app/features/focus/view/pages/focus_screen.dart';
 import 'package:todo_app/app/features/home/view/pages/add_task_dialog.dart';
 import 'package:todo_app/app/features/home/view/pages/home_screen.dart';
 import 'package:todo_app/app/features/profile/view/pages/profile_screen.dart';
@@ -53,7 +54,7 @@ class _BottomBarState extends State<BottomBar> {
         children: const [
           HomeScreen(),
           CalendarPage(),
-          FocusPage(),
+          FocusScreen(),
           ProfileScreen(),
         ],
       ),
@@ -123,23 +124,6 @@ class CalendarPage extends StatelessWidget {
       body: Center(
         child: Text(
           'Calendar Page',
-          style: TextStyle(color: textColor),
-        ),
-      ),
-    );
-  }
-}
-
-class FocusPage extends StatelessWidget {
-  const FocusPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: backgroundColor,
-      body: Center(
-        child: Text(
-          'Focus Page',
           style: TextStyle(color: textColor),
         ),
       ),

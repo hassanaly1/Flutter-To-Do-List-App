@@ -121,13 +121,7 @@ class ReUableOnBoardingScreen extends StatelessWidget {
                         ),
                         backgroundColor: buttonColor,
                       ),
-                      onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     CupertinoPageRoute(
-                        //       builder: (context) => const OnBoardingScreen2(),
-                        //     ));
-                      },
+                      onPressed: () {},
                       child: Text(
                         buttonText,
                         maxLines: 1,

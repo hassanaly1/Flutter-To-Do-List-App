@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:todo_app/app/features/profile/widget/change_account_image_modal.dart';
+import 'package:todo_app/app/features/profile/widget/change_account_name_dialog.dart';
+import 'package:todo_app/app/features/profile/widget/change_account_password_dialog.dart';
 import 'package:todo_app/app/features/profile/widget/resuabale_profile_tabs.dart';
 import 'package:todo_app/utils/colors.dart';
 
@@ -84,48 +87,78 @@ class ProfileScreen extends StatelessWidget {
                         const Text('Settings',
                             style: TextStyle(color: textColor)),
                         SizedBox(height: 10.h),
-                        const ReUsableProfileTabs(
+                        ReUsableProfileTabs(
                             imagePath: 'assets/images/setting.png',
-                            text: 'App Settings'),
+                            text: 'App Settings',
+                            onTap: () {}),
                         SizedBox(height: 25.h),
                         const Text('Account',
                             style: TextStyle(color: textColor)),
                         SizedBox(height: 10.h),
-                        const ReUsableProfileTabs(
+                        ReUsableProfileTabs(
                             imagePath: 'assets/images/account-name.png',
-                            text: 'Change Account Name'),
+                            text: 'Change Account Name',
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const ChangeAccountNameDialog();
+                                },
+                              );
+                            }),
                         SizedBox(height: 25.h),
-                        const ReUsableProfileTabs(
+                        ReUsableProfileTabs(
                             imagePath: 'assets/images/account-password.png',
-                            text: 'Change Account Password'),
+                            text: 'Change Account Password',
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const ChangeAccountPasswordDialog();
+                                },
+                              );
+                            }),
                         SizedBox(height: 25.h),
-                        const ReUsableProfileTabs(
+                        ReUsableProfileTabs(
                             imagePath: 'assets/images/account-image.png',
-                            text: 'Change Account Image'),
+                            text: 'Change Account Image',
+                            onTap: () {
+                              showModalBottomSheet(
+                                backgroundColor: lightGreyBackgroundColor,
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const ChangeAccountImageModal();
+                                },
+                              );
+                            }),
                         SizedBox(height: 25.h),
                         const Text('Uptodo',
                             style: TextStyle(color: textColor)),
                         SizedBox(height: 10.h),
-                        const ReUsableProfileTabs(
+                        ReUsableProfileTabs(
                             imagePath: 'assets/images/about-us.png',
-                            text: 'About Us'),
+                            text: 'About Us',
+                            onTap: () {}),
                         SizedBox(height: 25.h),
-                        const ReUsableProfileTabs(
-                            imagePath: 'assets/images/faq.png', text: 'FAQ'),
+                        ReUsableProfileTabs(
+                            imagePath: 'assets/images/faq.png',
+                            text: 'FAQ',
+                            onTap: () {}),
                         SizedBox(height: 25.h),
-                        const ReUsableProfileTabs(
+                        ReUsableProfileTabs(
                             imagePath: 'assets/images/help.png',
-                            text: 'Help & Feedback'),
+                            text: 'Help & Feedback',
+                            onTap: () {}),
                         SizedBox(height: 25.h),
-                        const ReUsableProfileTabs(
+                        ReUsableProfileTabs(
                             imagePath: 'assets/images/support-us.png',
-                            text: 'Support Us'),
+                            text: 'Support Us',
+                            onTap: () {}),
                         SizedBox(height: 25.h),
                         Row(
                           children: [
                             const Image(
-                              image: AssetImage('assets/images/logout.png'),
-                            ),
+                                image: AssetImage('assets/images/logout.png')),
                             SizedBox(width: 5.w),
                             Text('Logout',
                                 style: TextStyle(

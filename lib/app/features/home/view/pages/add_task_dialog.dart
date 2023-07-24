@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:todo_app/app/features/home/widget/task_priority_dialog.dart';
 import 'package:todo_app/utils/colors.dart';
 
 class AddTaskDialog extends StatefulWidget {
@@ -14,6 +15,9 @@ class _AddTaskDialogState extends State<AddTaskDialog>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _opacityAnimation;
+
+  DateTime? selectedDate;
+  TimeOfDay? selectedTime;
 
   @override
   void initState() {
@@ -39,6 +43,40 @@ class _AddTaskDialogState extends State<AddTaskDialog>
     super.dispose();
   }
 
+  Future<void> _selectDate() async {
+    final DateTime? pickedDate = await showDatePicker(
+      confirmText: 'Choose Time',
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime.now().add(const Duration(days: 365)),
+    );
+    if (pickedDate != null) {
+      setState(() {
+        selectedDate = pickedDate;
+      });
+
+      _selectTime(); // Open time picker after selecting the date
+    }
+  }
+
+  Future<void> _selectTime() async {
+    final TimeOfDay? pickedTime = await showTimePicker(
+      initialEntryMode: TimePickerEntryMode.inputOnly,
+      cancelText: 'Cancel',
+      confirmText: 'Save',
+      context: context,
+      initialTime: TimeOfDay.now(),
+    );
+    if (pickedTime != null) {
+      setState(() {
+        selectedTime = pickedTime;
+      });
+
+      // Save the date and time in a variable or perform other operations
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -49,15 +87,18 @@ class _AddTaskDialogState extends State<AddTaskDialog>
           child: Transform.scale(
             scale: _animationController.value,
             child: AlertDialog(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.zero,
+              ),
               backgroundColor: lightGreyBackgroundColor,
               title: const Text(
                 'Add Task',
                 style: TextStyle(color: textColor),
               ),
-              content: const Column(
+              content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  TextField(
+                  const TextField(
                     style: TextStyle(color: textColor),
                     decoration: InputDecoration(
                       labelText: 'Heading',
@@ -68,8 +109,8 @@ class _AddTaskDialogState extends State<AddTaskDialog>
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
-                  TextField(
+                  const SizedBox(height: 10),
+                  const TextField(
                     style: TextStyle(color: textColor),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -80,51 +121,71 @@ class _AddTaskDialogState extends State<AddTaskDialog>
                       labelStyle: TextStyle(color: textColor),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Icon(
-                        Icons.timer_outlined,
-                        color: Colors.white,
+                      GestureDetector(
+                        onTap: () {
+                          _selectDate();
+                        },
+                        child: const Image(
+                          image: AssetImage('assets/images/timer.png'),
+                          color: Colors.white,
+                        ),
                       ),
-                      SizedBox(
-                        width: 15,
+                      const SizedBox(width: 15),
+                      GestureDetector(
+                        onTap: () {
+                          // if (selectedDate != null) {
+                          //   _selectTime();
+                          // } else {
+                          //   ScaffoldMessenger.of(context).showSnackBar(
+                          //     const SnackBar(
+                          //       content: Text('Please select a date first'),
+                          //     ),
+                          //   );
+                          // }
+                        },
+                        child: const Image(
+                          image: AssetImage('assets/images/tag.png'),
+                          color: Colors.white,
+                        ),
                       ),
-                      Icon(
-                        Icons.local_offer_outlined,
-                        color: Colors.white,
+                      const SizedBox(width: 15),
+                      GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const TaskPriorityDialog();
+                            },
+                          );
+                        },
+                        child: const Image(
+                          image: AssetImage('assets/images/flag.png'),
+                          color: Colors.white,
+                        ),
                       ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Icon(
-                        Icons.flag_outlined,
-                        color: Colors.white,
-                      ),
-                      Spacer(),
-                      Icon(
-                        Icons.arrow_forward,
+                      const Spacer(),
+                      const Image(
+                        image: AssetImage('assets/images/send.png'),
                         color: Colors.white,
                       ),
                     ],
                   ),
+                  // const SizedBox(height: 20),
+                  // Text(
+                  //   'Selected Date: ${selectedDate?.toString() ?? 'None'}',
+                  //   style: const TextStyle(color: textColor),
+                  // ),
+                  // const SizedBox(height: 10),
+                  // Text(
+                  //   'Selected Time: ${selectedTime?.format(context) ?? 'None'}',
+                  //   style: const TextStyle(color: textColor),
+                  // ),
                 ],
               ),
-              actions: [
-                ElevatedButton(
-                  child: const Text('Cancel'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-                ElevatedButton(
-                  child: const Text('Save'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ],
             ),
           ),
         );
