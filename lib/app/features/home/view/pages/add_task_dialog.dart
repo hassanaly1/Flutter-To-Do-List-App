@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:todo_app/app/features/home/widget/task_category_dialog.dart';
 import 'package:todo_app/app/features/home/widget/task_priority_dialog.dart';
 import 'package:todo_app/utils/colors.dart';
 
@@ -18,6 +19,49 @@ class _AddTaskDialogState extends State<AddTaskDialog>
 
   DateTime? selectedDate;
   TimeOfDay? selectedTime;
+
+  final List<CategoryItem> categoryItems = [
+    CategoryItem(
+      text: 'Grocery',
+      backgroundImage: 'assets/images/grocery.png',
+    ),
+    CategoryItem(
+      text: 'Work',
+      backgroundImage: 'assets/images/work.png',
+    ),
+    CategoryItem(
+      text: 'Sport',
+      backgroundImage: 'assets/images/sport.png',
+    ),
+    CategoryItem(
+      text: 'Design',
+      backgroundImage: 'assets/images/design.png',
+    ),
+    CategoryItem(
+      text: 'University',
+      backgroundImage: 'assets/images/university.png',
+    ),
+    CategoryItem(
+      text: 'Social',
+      backgroundImage: 'assets/images/social.png',
+    ),
+    CategoryItem(
+      text: 'Music',
+      backgroundImage: 'assets/images/music.png',
+    ),
+    CategoryItem(
+      text: 'Health',
+      backgroundImage: 'assets/images/health.png',
+    ),
+    CategoryItem(
+      text: 'Movie',
+      backgroundImage: 'assets/images/movie.png',
+    ),
+    CategoryItem(
+      text: 'Home',
+      backgroundImage: 'assets/images/home.png',
+    ),
+  ];
 
   @override
   void initState() {
@@ -147,9 +191,20 @@ class _AddTaskDialogState extends State<AddTaskDialog>
                           //   );
                           // }
                         },
-                        child: const Image(
-                          image: AssetImage('assets/images/tag.png'),
-                          color: Colors.white,
+                        child: GestureDetector(
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return TaskCategoryDialog(
+                                    categoryItems: categoryItems);
+                              },
+                            );
+                          },
+                          child: const Image(
+                            image: AssetImage('assets/images/tag.png'),
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                       const SizedBox(width: 15),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+//Category box in Task widget.
 class CategoryBox extends StatelessWidget {
   final Color backgroundColor;
   final String text;

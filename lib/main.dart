@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_app/app/features/home/view/pages/bottom_bar.dart';
+import 'package:todo_app/app/features/home/view/pages/new_category_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
+          title: 'ToDoApp',
           theme: ThemeData(
             fontFamily: GoogleFonts.lato().fontFamily,
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
