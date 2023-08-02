@@ -1,8 +1,10 @@
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:todo_app/app/features/home/view/pages/bottom_bar.dart';
 import 'package:todo_app/utils/colors.dart';
 
 void main() => runApp(const MyApp());
@@ -175,7 +177,13 @@ class _NewCategoryScreenState extends State<NewCategoryScreen> {
                       Align(
                         alignment: Alignment.bottomLeft,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                  builder: (context) => const BottomBar(),
+                                ));
+                          },
                           child: Text(
                             "Cancel",
                             style: GoogleFonts.lato(

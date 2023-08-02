@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_app/app/features/home/view/pages/edit_task_screen.dart';
 import 'package:todo_app/app/features/home/widget/task_widget.dart';
 import 'package:todo_app/utils/colors.dart';
 
@@ -70,36 +72,57 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               //List of Tasks
-              const TaskWidget(
+              TaskWidget(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => const EditTaskScreen(),
+                      ));
+                },
                 taskTitle: 'Do Math Homework',
                 taskTime: 'Today At 16:45',
                 categoryName: 'University',
                 backgroundColor: categoryBlueColor,
-                icon: Icon(
+                icon: const Icon(
                   Icons.school_outlined,
                   color: Color.fromARGB(255, 12, 74, 126),
                   size: 15,
                 ),
                 taskPriorityNumber: '1',
               ),
-              const TaskWidget(
-                taskTitle: 'Do Math Homework',
-                taskTime: 'Today At 16:45',
+              TaskWidget(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => const EditTaskScreen(),
+                      ));
+                },
+                taskTitle: 'Tack out dogs',
+                taskTime: 'Today At 18:20',
                 categoryName: 'Home',
                 backgroundColor: categoryRedColor,
-                icon: Icon(
+                icon: const Icon(
                   Icons.home_outlined,
                   color: Color.fromARGB(255, 124, 12, 12),
                   size: 15,
                 ),
                 taskPriorityNumber: '2',
               ),
-              const TaskWidget(
-                taskTitle: 'Do Math Homework',
-                taskTime: 'Today At 16:45',
+              TaskWidget(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => const EditTaskScreen(),
+                      ));
+                },
+                taskTitle: 'Business meeting with CEO',
+                taskTime: 'Today At 08:15',
                 categoryName: 'Work',
                 backgroundColor: categoryYellowColor,
-                icon: Icon(
+                icon: const Icon(
                   Icons.school_outlined,
                   color: Color.fromARGB(255, 126, 105, 15),
                   size: 15,
