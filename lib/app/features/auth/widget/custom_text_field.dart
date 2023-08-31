@@ -7,11 +7,14 @@ class CustomTextField extends StatelessWidget {
   final String name;
   final String hintText;
   final bool obsecureText;
+  final TextEditingController controller;
+
   const CustomTextField(
       {super.key,
       required this.name,
       required this.hintText,
-      this.obsecureText = false});
+      this.obsecureText = false,
+      required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +32,7 @@ class CustomTextField extends StatelessWidget {
           height: 10,
         ),
         TextFormField(
+          controller: controller,
           keyboardType: TextInputType.emailAddress,
           style: const TextStyle(color: Color(0xffffffffde)),
           obscureText: obsecureText,
